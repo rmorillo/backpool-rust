@@ -1,42 +1,17 @@
 use std::env;
+mod backpool;
+
+use backpool::LookBehindPool;
+
+struct Prices{
+    open: u64,
+    high: u64,
+    low: u64,
+    close: u64
+}
 
 fn main(){
-    struct Prices{
-        open: u64,
-        high: u64,
-        low: u64,
-        close: u64
-    }
-
-    struct LookBehindPool<T>{
-        capacity: u64,
-        pool: Vec<T>,
-    }
-
-    impl<T> LookBehindPool<T>{
-        fn new(capacity: usize) -> LookBehindPool<T> {
-            let m: Vec<T> = Vec::new();
-
-            LookBehindPool { capacity: capacity as u64, pool: m}
-        }
-
-        fn item(&self, index: usize) -> &T{
-            &self.pool[index]
-        }
-
-        fn write(&mut self, value: T){
-            if self.pool.len()==self.capacity as usize
-                {
-                    self.pool[0]= value
-                }
-                else
-                {
-                    self.pool.push(value)
-                }
-        }
-
-    }
-
+    
     let mut args = env::args();
 
     let message = match args.nth(1) {
