@@ -50,8 +50,8 @@ fn main(){
     my_thing.write(Prices{open: 1, high:2, low:3, close: 4});
     my_thing.write(Prices{open: 1, high:6, low:3, close: 4});
     //my_thing.write(Prices{open: 1, high:5, low:3, close: 4});
-    println!("the thing's total is {}", my_thing.item(0).open);
-    println!("the thing's total is {}", my_thing.item(0).high);
-    println!("the thing's total is {}", my_thing.item(0).low);
-    println!("the thing's total is {}", my_thing.item(0).close);
+    println!("the thing's total is {}", my_thing.item(message.parse().unwrap()).open);
+    println!("the thing's total is {}", my_thing.item(message.parse().unwrap()).high);
+    println!("the thing's total is {}", my_thing.item(message.parse().unwrap()).low);
+    println!("the thing's total is {}", my_thing.item(message.parse().unwrap()).close);
 }
